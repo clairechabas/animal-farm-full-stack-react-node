@@ -24,10 +24,11 @@ const animals = [...Array(250).keys()].map((id) => {
 })
 
 // Endpoint to search within the list of animals
-app.get('/', (req, res) => {
-  const q = req.query.q?.toLowerCase() || ''
+app.get('', (req, res) => {
+  const query = req.query.q?.toLowerCase() || ''
+
   const results = animals.filter((animal) =>
-    animal.type.toLowerCase().includes(q)
+    animal.type.toLowerCase().includes(query)
   )
 
   res.send(results)
